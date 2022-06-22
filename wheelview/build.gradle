@@ -1,20 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
 
-
-task generateSourcesJar(type: Jar){
-    from android.sourceSets.main.java.srcDirs
-    classifier 'sources'
-}
-afterEvaluate {
-    publishing {
-        publications{
-            release(MavenPublication){
-
-            }
-        }
-    }
-}
 
 android {
     compileSdkVersion 32
