@@ -1,6 +1,7 @@
 package com.contrarywind.timer;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 
 import com.contrarywind.view.WheelView;
@@ -19,6 +20,7 @@ public final class MessageHandler extends Handler {
     private final WheelView wheelView;
 
     public MessageHandler(WheelView wheelView) {
+        super(Looper.getMainLooper());
         this.wheelView = wheelView;
     }
 
