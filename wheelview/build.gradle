@@ -1,5 +1,28 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
+
+task generateSourcesJar(type: Jar){
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+afterEvaluate {
+    publishing {
+        publications{
+//            release(MavenPublication){
+//            }
+            Production(MavenPublication){
+                groupId = "com.github.hycinth"
+                artifactId = "wheelview"
+                version = "4.1.0"
+                // 必须有这个 否则不会上传AAR包
+                afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+                // 上传source，这样使用方可以看到方法注释
+                artifact generateSourcesJar
+            }
+        }
+    }
+}
 
 android {
     compileSdkVersion 32

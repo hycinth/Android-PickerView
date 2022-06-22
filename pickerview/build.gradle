@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
-group = 'com.github.hycinth'
 
 
 task generateSourcesJar(type: Jar){
@@ -10,7 +9,16 @@ task generateSourcesJar(type: Jar){
 afterEvaluate {
     publishing {
         publications{
-            release(MavenPublication){
+//            release(MavenPublication){
+//            }
+            Production(MavenPublication){
+                groupId = "com.github.hycinth"
+                artifactId = "Android-PickerView"
+                version = "4.1.9"
+                // 必须有这个 否则不会上传AAR包
+                afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+                // 上传source，这样使用方可以看到方法注释
+                artifact generateSourcesJar
             }
         }
     }
