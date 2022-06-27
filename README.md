@@ -9,6 +9,8 @@
 
 ### [English Document](https://github.com/Bigkoo/Android-PickerView/blob/master/README-en.md)
 
+### 此项目只是因为jcenter过期，原项目没有迁移，个人使用作为过渡，勿喷！！！
+
 ### 注意事项、详请使用方式、更新日志等，请查看 [Wiki文档](https://github.com/Bigkoo/Android-PickerView/wiki)
 **Wiki文档，Wiki文档，Wiki文档 !~ 重要的事情说三遍**
 
